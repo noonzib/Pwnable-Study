@@ -61,7 +61,7 @@ password : mungguta
 
 password : goodluck
 
-1.정보수집
+1. 정보수집
     * whoami => 자신의 누구인지
     * id => 자신의 좀 더 자세한 정보
     * uname -a => 커널 버전 확인
@@ -120,17 +120,17 @@ password : player
 password : programming
 
 * 사용자
-    1.user => 로그인한 아이디  
-    2.group => 유저네임과 같은 이름
-    3.other => 유저와 그룹을 제외한 모든 사람
-    4.root => 절대적인 권한
+    1. user => 로그인한 아이디  
+    2. group => 유저네임과 같은 이름
+    3. other => 유저와 그룹을 제외한 모든 사람
+    4. root => 절대적인 권한
 
 * 권한 분석 
     -rwxrwxrwx    1 trainer9 trainer10        5 10월 20 21:35 test1
     * rwx(1) rwx(2) rwx(3) r:Read, w:Write, x:eXcute
-        1.user의 권한
-        2.group의 권한
-        3.other의 권한
+        1. user의 권한
+        2. group의 권한
+        3. other의 권한
     * trainer9 => user
     * trainer10 => group
 
@@ -143,20 +143,20 @@ password : best!
     * **SetUID** => SetUID가 걸린 파일을 조작하여, 관리자 권한을 얻음, **일시적으로 자신의 ID를 변경하는 것**
 
 * 다양한 해킹기법
-    1.레이스컨디션
-    2.IFS버그
-    3.링크버그
-    4.버퍼 오버플로우
-    5.포맷 스트링 어택
+    1. 레이스컨디션
+    2. IFS버그
+    3. 링크버그
+    4. 버퍼 오버플로우
+    5. 포맷 스트링 어택
 * -r-s--x--x => s는 SetUID, s가 x를 포함
 * find / -perm -4000 => SetUID가 걸린 파일 찾기
     * / 에서 부터, 적어도 SetUID가 걸린 모든 파일을 찾아라
     * -4000 => - : 적어도, 4 : setUID, 000 : rwx
 * find 옵션
-    1.-perm => 권한과 일치하는 파일을 찾는다.
-    2.-name =>이름과 일치하는 파일을 찾는다.
-    3.-user => 유저와 일치하는 파일을 찾는다.
-    4.-group => 그룹과 일차하는 파일을 찾는다.
+    1. -perm => 권한과 일치하는 파일을 찾는다.
+    2. -name =>이름과 일치하는 파일을 찾는다.
+    3. -user => 유저와 일치하는 파일을 찾는다.
+    4. -group => 그룹과 일차하는 파일을 찾는다.
 * FTZ level 공략법(?)
     1. 자신의 아이디가 level3일때
     2. level4의 권한으로 SetUID가 걸린 파일을 찾는다.
