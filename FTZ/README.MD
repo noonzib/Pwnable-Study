@@ -193,7 +193,7 @@ password : can you fly?
 
 hint : 
 다음 코드는 autodig의 소스이다.
-
+~~~ c
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -215,7 +215,7 @@ int main(int argc, char **argv){
     system( cmd );
  
 }
-
+~~~
 이를 이용하여 level4의 권한을 얻어라.
 
 more hints.
