@@ -1,4 +1,4 @@
-# FTZ
+### FTZ
 
 >trainer1
 
@@ -192,7 +192,7 @@ hint : 텍스트 파일 편집 중 쉘의 명령을 실행시킬 수 있다는�
 password : can you fly?
 
 hint : 
-{% raw %}
+
 다음 코드는 autodig의 소스이다.
 ~~~ c
 #include <stdio.h>
@@ -222,7 +222,7 @@ int main(int argc, char **argv){
 more hints.
 - 동시에 여러 명령어를 사용하려면?
 - 문자열 형태로 명령어를 전달하려면?
-{% endraw %}
+
 
 * 풀이
     1. find / -name autodig
@@ -240,7 +240,7 @@ hint : 누군가 /etc/xinetd.d/에 백도어를 심어놓았다.!
     3. gcc -o backdoor backdoor.c
     4. finger @localhost
 
-### backkdoor.c
+# backkdoor.c
 ~~~ c
 #include <stdio.h>
 
