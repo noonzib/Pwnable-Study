@@ -159,9 +159,9 @@ password : best!
     4.-group => 그룹과 일차하는 파일을 찾는다.
 * FTZ level 공략법(?)
 
-    1.자신의 아이디가 level3일때
-    2.level4의 권한으로 SetUID가 걸린 파일을 찾는다.
-    3.파일을 이용하여 쉘을 얻고 
+    1. 자신의 아이디가 level3일때
+    2. level4의 권한으로 SetUID가 걸린 파일을 찾는다.
+    3. 파일을 이용하여 쉘을 얻고 
     4. my-pass입력 하면 패스워드...
 
 >level1
