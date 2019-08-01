@@ -88,8 +88,8 @@ root : x : 0 : 0 : Admin : /root : /bin/bash
 
 password : to the top
 
-tar cvf file file1 file2 => 파일 합치기
-tar xvf file => 파일 해체하기
+* tar cvf file file1 file2 => 파일 합치기
+* tar xvf file => 파일 해체하기
     * 옵션
         * c - Create : 새로운 파일을 만드는 옵션
         * x - eXtract : 압축 해제
@@ -97,4 +97,72 @@ tar xvf file => 파일 해체하기
         * v - View : 압축,해체 과정출력
         * f - File : 파일로 백업
 * tar => 백업용
-//-- 2019-07-25 --//
+* gzip => 압축
+* gzip -d => 압축 해제
+* 파일 확장자
+    * tar => tar로 합친 파일
+    * gz => gzip으로 압축된 파일 
+    * tar.gz => tar로 합치고 gzip으로 압축
+    * tgz => tar.gz 을 합친파일
+
+>trainer8
+
+password : player
+
+* cat > xxx.txt => 파일 생성, 작성
+* cat >> xxx.txt => 파일 택스트 추가
+
+* gcc -o program.exe program.c => C 컴파일
+* 파일실행 => 절대경로, 상대경로
+
+>trainer9 
+
+password : programming
+
+* 사용자
+    1.user => 로그인한 아이디  
+    2.group => 유저네임과 같은 이름
+    3.other => 유저와 그룹을 제외한 모든 사람
+    4.root => 절대적인 권한
+
+* 권한 분석 
+    -rwxrwxrwx    1 trainer9 trainer10        5 10월 20 21:35 test1
+    * rwx(1) rwx(2) rwx(3) r:Read, w:Write, x:eXcute
+        1.user의 권한
+        2.group의 권한
+        3.other의 권한
+    * trainer9 => user
+    * trainer10 => group
+
+>trainer10
+
+password : best!
+
+* Remote 해킹 => 서버에 아이디가 없을때, 아이디를 얻고자 시도하는 것
+* Local 해킹 => 서버에 일반계정을 갖고 있을 때, root권한을 얻고자 시도하는 것
+    * **SetUID** => SetUID가 걸린 파일을 조작하여, 관리자 권한을 얻음, **일시적으로 자신의 ID를 변경하는 것**
+
+* 다양한 해킹기법
+    1.레이스컨디션
+    2.IFS버그
+    3.링크버그
+    4.버퍼 오버플로우
+    5.포맷 스트링 어택
+* -r-s--x--x => s는 SetUID, s가 x를 포함
+* find / -perm -4000 => SetUID가 걸린 파일 찾기
+    * / 에서 부터, 적어도 SetUID가 걸린 모든 파일을 찾아라
+    * -4000 => - : 적어도, 4 : setUID, 000 : rwx
+* find 옵션
+    1.-perm => 권한과 일치하는 파일을 찾는다.
+    2.-name =>이름과 일치하는 파일을 찾는다.
+    3.-user => 유저와 일치하는 파일을 찾는다.
+    4.-group => 그룹과 일차하는 파일을 찾는다.
+*FTZ level 공략법(?)
+    1.자신의 아이디가 level3일때
+    2.level4의 권한으로 SetUID가 걸린 파일을 찾는다.
+    3.파일을 이용하여 쉘을 얻고 
+    4. my-pass입력 하면 패스워드...
+
+>level1
+
+password : level1
